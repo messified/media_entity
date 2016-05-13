@@ -4,12 +4,11 @@ namespace Drupal\media_entity;
 
 use Drupal\Core\Entity\ContentEntityForm;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\entity\Form\RevisionableContentEntityForm;
 
 /**
  * Form controller for the media edit forms.
  */
-class MediaForm extends RevisionableContentEntityForm {
+class MediaForm extends ContentEntityForm {
 
   /**
    * Default settings for this media bundle.

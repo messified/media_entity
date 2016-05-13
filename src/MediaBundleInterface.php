@@ -3,12 +3,12 @@
 namespace Drupal\media_entity;
 
 use Drupal\Core\Config\Entity\ConfigEntityInterface;
-use Drupal\entity\Entity\RevisionableEntityBundleInterface;
+use Drupal\Core\Entity\RevisionableInterface;
 
 /**
  * Provides an interface defining a media bundle entity.
  */
-interface MediaBundleInterface extends ConfigEntityInterface, RevisionableEntityBundleInterface {
+interface MediaBundleInterface extends ConfigEntityInterface, RevisionableInterface {
 
   /**
    * Returns the label.
@@ -91,9 +91,9 @@ interface MediaBundleInterface extends ConfigEntityInterface, RevisionableEntity
   /**
    * Sets whether a new revision should be created by default.
    *
-   * @param bool $new_revision
+   * @param bool $value
    *   TRUE if a new revision should be created by default.
    */
-  public function setNewRevision($new_revision);
+  public function setNewRevision($value = true);
 
 }

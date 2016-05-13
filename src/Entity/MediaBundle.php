@@ -2,7 +2,6 @@
 
 namespace Drupal\media_entity\Entity;
 
-use Drupal\Core\Entity\EntityDescriptionInterface;
 use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
 use Drupal\Core\Entity\EntityWithPluginCollectionInterface;
 use Drupal\Core\Plugin\DefaultSingleLazyPluginCollection;
@@ -19,12 +18,9 @@ use Drupal\media_entity\MediaInterface;
  *     "form" = {
  *       "add" = "Drupal\media_entity\MediaBundleForm",
  *       "edit" = "Drupal\media_entity\MediaBundleForm",
- *       "delete" = "Drupal\Core\Entity\EntityDeleteForm"
+ *       "delete" = "Drupal\media_entity\Form\MediaBundleDeleteForm"
  *     },
  *     "list_builder" = "Drupal\media_entity\MediaBundleListBuilder",
- *     "route_provider" = {
- *       "html" = "Drupal\Core\Entity\Routing\DefaultHtmlRouteProvider",
- *     }
  *   },
  *   admin_permission = "administer media bundles",
  *   config_prefix = "bundle",
@@ -46,14 +42,13 @@ use Drupal\media_entity\MediaInterface;
  *     "status",
  *   },
  *   links = {
- *     "add-form" = "/admin/structure/media/add",
  *     "edit-form" = "/admin/structure/media/manage/{media_bundle}",
  *     "delete-form" = "/admin/structure/media/manage/{media_bundle}/delete",
  *     "collection" = "/admin/structure/media",
  *   }
  * )
  */
-class MediaBundle extends ConfigEntityBundleBase implements MediaBundleInterface, EntityWithPluginCollectionInterface, EntityDescriptionInterface {
+abstract class MediaBundle extends ConfigEntityBundleBase implements MediaBundleInterface, EntityWithPluginCollectionInterface {
 
   /**
    * The machine name of this media bundle.
@@ -166,14 +161,6 @@ class MediaBundle extends ConfigEntityBundleBase implements MediaBundleInterface
   /**
    * {@inheritdoc}
    */
-  public function setDescription($description) {
-    $this->description = $description;
-    return $this;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public function getTypeConfiguration() {
     return $this->type_configuration;
   }
@@ -237,7 +224,7 @@ class MediaBundle extends ConfigEntityBundleBase implements MediaBundleInterface
   /**
    * {@inheritdoc}
    */
-  public function setNewRevision($new_revision) {
+  public function setNewRevision($new_revision = true) {
     $this->new_revision = $new_revision;
   }
 

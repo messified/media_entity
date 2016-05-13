@@ -30,10 +30,7 @@ use Drupal\user\UserInterface;
  *     },
  *     "inline_form" = "Drupal\media_entity\Form\MediaInlineForm",
  *     "translation" = "Drupal\content_translation\ContentTranslationHandler",
- *     "views_data" = "Drupal\media_entity\MediaViewsData",
- *     "route_provider" = {
- *       "html" = "Drupal\Core\Entity\Routing\AdminHtmlRouteProvider",
- *     }
+ *     "views_data" = "Drupal\media_entity\MediaViewsData"
  *   },
  *   base_table = "media",
  *   data_table = "media_field_data",
@@ -54,8 +51,6 @@ use Drupal\user\UserInterface;
  *   admin_permission = "administer media",
  *   field_ui_base_route = "entity.media_bundle.edit_form",
  *   links = {
- *     "add-page" = "/media/add",
- *     "add-form" = "/media/add/{media_bundle}",
  *     "canonical" = "/media/{media}",
  *     "delete-form" = "/media/{media}/delete",
  *     "edit-form" = "/media/{media}/edit",
